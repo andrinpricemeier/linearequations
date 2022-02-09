@@ -102,7 +102,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Solve linear equations</title>
+        <title>Linear Equations Solver</title>
         <link
           rel="canonical"
           href="https://linear-equations.com"
