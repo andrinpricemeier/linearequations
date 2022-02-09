@@ -15,7 +15,14 @@ const Home: NextPage = () => {
   const [unknownNames, setUnknownNames] = useState<string[]>(["a", "b", "c"]);
 
   const updateDimension = useCallback((event) => {
-    setDimension(_ => +event.target.value);
+    const newDimension = +event.target.value;
+    if (newDimension < 1) {
+      setDimension(_ => 1);
+    } else if (newDimension > 10) {
+      setDimension(_ => 10);
+    } else {
+      setDimension(_ => newDimension);
+    }
   }, []);
 
   useEffect(() => {
@@ -110,7 +117,7 @@ const Home: NextPage = () => {
       <h1>Solve system of equations</h1>
       <p>This tool allows you to solve any system of linear equations in the form of Ax = b.</p>
       <h2>Matrix dimension</h2>
-      <TextField sx={{ marginBottom: 2, marginRight: 2, width: 150 }} id="outlined-basic" label="Matrix dimension" onChange={updateDimension} value={dimension} variant="outlined" type="number" />
+      <TextField onFocus={event => { event.target.select(); }} sx={{ marginBottom: 2, marginRight: 2, maxWidth: 100 }} id="outlined-basic" label="Dimension" onChange={updateDimension} value={dimension} variant="outlined" type="number" />
       <h2>Equation</h2>
       <EquationGrid coefficients={coefficients} constants={constants} onCoefficientsChange={coefficientsChange} onConstantsChange={constantsChange} unknownNames={unknownNames} />
       <Button sx={{ marginTop: 2 }} variant="contained" onClick={solve}>Solve</Button>

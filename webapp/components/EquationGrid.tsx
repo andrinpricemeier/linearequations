@@ -37,7 +37,7 @@ const EquationGrid = (props: IEquationGridProps) => {
                         {row.map((value, colIndex) => {
                             return (
                                 <Grid key={`${rowIndex}.${colIndex}`} item>
-                                    <TextField sx={{ width: 100 }} key={`text.${rowIndex}.${colIndex}`} id="outlined-basic" name={`${rowIndex}.${colIndex}`} label={`${rowIndex}.${colIndex}`} value={value} variant="outlined" type="number" onChange={notifyCoefficientsChange} />
+                                    <TextField onFocus={event => { event.target.select(); }} sx={{ width: 100 }} key={`text.${rowIndex}.${colIndex}`} id="outlined-basic" name={`${rowIndex}.${colIndex}`} label={`${rowIndex}.${colIndex}`} value={value} variant="outlined" type="number" onChange={notifyCoefficientsChange} />
                                 </Grid>
                             )
                         })}
@@ -48,7 +48,7 @@ const EquationGrid = (props: IEquationGridProps) => {
                             <Typography>=</Typography>
                         </Grid>
                         <Grid key={`constant-${rowIndex}`} item>
-                            <TextField sx={{ width: 100 }} key={`constant.text.${rowIndex}`} id="outlined-basic" name={`${rowIndex}`} label={`${rowIndex}`} value={props.constants[rowIndex]} variant="outlined" type="number" onChange={notifyConstantsChange} />
+                            <TextField onFocus={event => { event.target.select(); }} sx={{ width: 100 }} key={`constant.text.${rowIndex}`} id="outlined-basic" name={`${rowIndex}`} label={`${rowIndex}`} value={props.constants[rowIndex]} variant="outlined" type="number" onChange={notifyConstantsChange} />
                         </Grid>
                     </Grid>
                 )
