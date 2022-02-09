@@ -7,14 +7,14 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#014D40', // dark teal
-      light: '#147D64', // light teal
-      dark: '#0C6B58' // light-dark teal
+      main: '#0A558C', 
+      light: '#4098D7', 
+      dark: '#003E6B'
     },
     secondary: {
-      main: '#102A43', // dark blue gray
-      light: '#627D98', // light gray
-      dark: '#334E68' // gray
+      main: '#243B53', 
+      light: '#829AB1',
+      dark: '#102A43'
     },
   }
 });
