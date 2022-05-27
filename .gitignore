@@ -3,6 +3,8 @@ api.rest
 .vscode
 .requirements.zip
 __pycache__
+.pdm.toml
+.coverage
 
 # Logs
 logs

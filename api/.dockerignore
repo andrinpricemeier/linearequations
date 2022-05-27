@@ -1,0 +1,6 @@
+*
+.*
+!app/
+!pdm.lock
+!pyproject.toml
+!.env
