@@ -1,7 +1,5 @@
-# Linear Equations Solver
+# System of linear equations solver
 
-This tool uses numpy's linalg.solve to solve systems of linear equations. The web application is available under [Linear Equations](https://linear-equations.com).
-
-## Technologies
-
-The project uses [Next.js](https://nextjs.org/) and [Material UI](https://mui.com/) for the frontend. Tracking is done using [Plausible.js](https://plausible.io/). The actual equation solver runs as an Azure Function.
+This application allows solving systems of linear equations of arbitrary sizes.
+The reason for this tool is that even though there are other offerings in this space (such as Wolfram Alpha), they all have some limitations, such as the maximum dimension of the matrix. That is why this tool allows you to specify arbitrary dimensions for matrices
+and solves the linear equations easily and quickly.
