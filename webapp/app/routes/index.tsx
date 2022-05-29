@@ -1,7 +1,5 @@
+import { MainApp } from "~/components/MainApp";
+
 export default function Index() {
-  return (
-    <main>
-      <h1>Linear Equations</h1>
-    </main>
-  );
+  return <MainApp />;
 }
