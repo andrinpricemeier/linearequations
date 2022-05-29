@@ -9,7 +9,7 @@ import { TopActionBar } from "./TopActionBar";
 
 export const MainApp = () => {
   return (
-    <main>
+    <main className="m-6 flex flex-col gap-y-5">
       <TitleImage />
       <TopActionBar />
       <CoefficientMatrix dimension={2} />

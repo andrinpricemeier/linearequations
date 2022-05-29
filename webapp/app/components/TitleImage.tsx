@@ -1,6 +1,6 @@
 export const TitleImage = () => {
   return (
-    <div>
+    <div className="h-60 w-60">
       <svg
         width="100%"
         height="100%"
