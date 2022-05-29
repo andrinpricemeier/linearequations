@@ -5,8 +5,7 @@
 }
 
 body {
-  background-image: url(/images/writing_pad.svg);
-  background-repeat: repeat;
+  background: url(/images/writing_pad.svg) repeat left top;
 }
 
 @tailwind base;
