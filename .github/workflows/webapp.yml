@@ -62,6 +62,7 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
+          working-directory: webapp
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
@@ -88,6 +89,7 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
+          working-directory: webapp
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
@@ -117,6 +119,7 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
+          working-directory: webapp
 
       - name: 🛠 Setup Database
         run: npx prisma migrate reset --force
