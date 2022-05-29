@@ -16,7 +16,45 @@ import {
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    {
+      rel: "apple-touch-icon",
+      href: "/apple-touch-icon.png",
+      sizes: "180x180",
+    },
+    {
+      rel: "icon",
+      href: "/sudolver_logo.svg",
+      type: "image/svg+xml",
+    },
+    {
+      rel: "icon",
+      href: "/favicon-32x32.png",
+      type: "image/png",
+      sizes: "32x32",
+    },
+    {
+      rel: "icon",
+      href: "/favicon-16x16.png",
+      type: "image/png",
+      sizes: "16x16",
+    },
+    {
+      rel: "manifest",
+      href: "/site.webmanifest",
+    },
+    {
+      rel: "mask-icon",
+      href: "/safari-pinned-tab.svg",
+      color: "#3497c6",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "/apple-touch-icon.png",
+      sizes: "180x180",
+    },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
