@@ -1,6 +1,6 @@
 export const SolvedImage = () => {
   return (
-    <div>
+    <div className="h-32 w-32">
       <svg
         width="100%"
         height="100%"

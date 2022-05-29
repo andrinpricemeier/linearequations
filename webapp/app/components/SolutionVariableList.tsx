@@ -1,9 +1,7 @@
-import type { FC } from "react";
-import type { ISolutionVariableProps } from "./SolutionVariable";
 import { SolvedImage } from "./SolvedImage";
 
 export interface ISolutionVariableListProps {
-  variables: FC<ISolutionVariableProps>[];
+  variables: JSX.Element[];
 }
 
 export const SolutionVariableList = (props: ISolutionVariableListProps) => {
