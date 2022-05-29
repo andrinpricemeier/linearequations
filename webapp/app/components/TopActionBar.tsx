@@ -1,10 +1,7 @@
-import { Button } from "./Button";
+export interface ITopActionBarProps {
+  children: JSX.Element[];
+}
 
-export const TopActionBar = () => {
-  return (
-    <div className="flex gap-x-4">
-      <Button content="-" onClick={() => {}} />
-      <Button content="+" onClick={() => {}} />
-    </div>
-  );
+export const TopActionBar = (props: ITopActionBarProps) => {
+  return <div className="flex gap-x-4">{props.children}</div>;
 };

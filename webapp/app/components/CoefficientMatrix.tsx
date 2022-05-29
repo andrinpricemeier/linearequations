@@ -17,7 +17,6 @@ export const CoefficientMatrix = (props: ICoefficientMatrix) => {
           />
         );
       })}
-      <LeftRightSeparator rowCount={props.dimension} />
       <RhsColumn
         key="rhs"
         values={Array.from({ length: props.dimension }, (_, __) => 0)}
