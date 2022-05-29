@@ -4,4 +4,10 @@ export default {
   component: SolutionVariable,
 };
 
-export const Primary = () => <SolutionVariable name="x" value={5.0} />;
+const Template = (args: any) => <SolutionVariable {...args} />;
+
+export const Primary = Template.bind({}) as any;
+Primary.args = {
+  name: "x",
+  value: 4.5,
+};
