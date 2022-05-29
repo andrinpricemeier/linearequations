@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'xkcdScript';
+  font-style: normal;
+  src: url('/fonts/xkcd-script.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
