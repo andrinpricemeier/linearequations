@@ -1,9 +1,12 @@
+import type { FC } from "react";
 export interface ISolutionVariableProps {
   name: string;
   value: number;
 }
 
-export const SolutionVariable = (props: ISolutionVariableProps) => {
+export const SolutionVariable: FC<ISolutionVariableProps> = (
+  props: ISolutionVariableProps
+) => {
   return (
     <span className="text-green">
       {props.name} = {props.value}
