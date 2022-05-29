@@ -3,20 +3,16 @@ export interface INumberInputProps {
 }
 export const NumberInput = (props: INumberInputProps) => {
   return (
-    <div className="mb-3 xl:w-96">
+    <div className="mb-3">
       <input
         type="number"
         className="
         form-control
-        m-0
-        block
-        w-full
         rounded
         border-2
         border-solid
         border-black
         bg-white bg-clip-padding
-        px-3 py-1.5 text-base
         font-normal
         text-black
         transition
