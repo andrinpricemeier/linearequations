@@ -4,10 +4,6 @@
   src: url('/fonts/xkcd-script.woff2') format('woff2');
 }
 
-body {
-  background: url(/images/writing_pad.svg) repeat left top;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
