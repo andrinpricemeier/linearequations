@@ -1,6 +1,6 @@
 export const SolvedImage = () => {
   return (
-    <div className="w-32">
+    <div className="m-auto block w-32">
       <svg
         viewBox="0 0 1667 834"
         version="1.1"

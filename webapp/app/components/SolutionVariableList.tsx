@@ -19,7 +19,7 @@ export const SolutionVariableList = (props: ISolutionVariableListProps) => {
   return (
     <div>
       <SolvedImage />
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-col flex-wrap content-center gap-3">
         {props.solutions.map((solution: number, variableIndex: number) => {
           return (
             <SolutionVariable
