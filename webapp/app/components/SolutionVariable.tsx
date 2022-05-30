@@ -9,7 +9,7 @@ export const SolutionVariable: FC<ISolutionVariableProps> = (
 ) => {
   return (
     <span className="text-green">
-      {props.name} = {props.value}
+      {props.name} = {props.value.toFixed(3)}
     </span>
   );
 };
