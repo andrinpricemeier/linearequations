@@ -9,6 +9,8 @@ export const SolvingFailedText = () => {
         <a
           className="text-blue underline"
           href="https://github.com/andrinmeier/linearequations"
+          target="_blank"
+          rel="noreferrer"
         >
           GitHub page
         </a>{" "}
