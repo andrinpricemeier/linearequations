@@ -6,4 +6,4 @@ and solves the linear equations easily and quickly.
 
 ## UI testing
 
-This project uses Storybook and Chromatic for UI testing. You can view the latest UI builds here: https://www.chromatic.com/builds?appId=6294d9297e7a9f003a1a2dff.
+This project uses [Storybook](https://storybook.js.org/) and [Chromatic](https://www.chromatic.com/) for UI testing. You can view the latest UI builds here: [Chromatic builds](https://www.chromatic.com/builds?appId=6294d9297e7a9f003a1a2dff).
