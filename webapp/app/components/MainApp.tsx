@@ -38,7 +38,9 @@ export const MainApp = () => {
 
   const onSolve = useCallback(async () => {
     console.log("Setting screenshot");
+    setSolutions([]);
     setIsSolving(true);
+    setSolvingSucceeded(false);
     const api = new SudolverApi();
     try {
       const equationSolutions = await api.solve(coefficients, rhsValues);
