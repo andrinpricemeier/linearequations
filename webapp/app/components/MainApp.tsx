@@ -20,13 +20,46 @@ export const MainApp = () => {
   const [rhsValues, setRhsValues] = useState<number[]>([0, 0]);
   const [solutions, setSolutions] = useState<number[]>([]);
 
-  const increaseDimension = useCallback(() => {
-    setDimension((dim) => Math.min(10, dim + 1));
+  const createEmptyCoefficients = useCallback((dimension: number) => {
+    const rows = [];
+    for (let i = 0; i < dimension; i++) {
+      const columns = [];
+      for (let j = 0; j < dimension; j++) {
+        columns.push(0);
+      }
+      rows.push(columns);
+    }
+    return rows;
   }, []);
 
-  const decreaseDimension = useCallback(() => {
-    setDimension((dim) => Math.max(1, dim - 1));
+  const createEmptyRhsValues = useCallback((dimension: number) => {
+    const rows = [];
+    for (let i = 0; i < dimension; i++) {
+      rows.push(0);
+    }
+    return rows;
   }, []);
+
+  const increaseDimension = useCallback(() => {
+    const newDim = Math.min(10, dimension + 1);
+    if (dimension === newDim) {
+      return;
+    }
+    setDimension(newDim);
+    setCoefficients((_) => createEmptyCoefficients(newDim));
+    setRhsValues((_) => createEmptyRhsValues(newDim));
+  }, [dimension, createEmptyCoefficients, createEmptyRhsValues]);
+
+  const decreaseDimension = useCallback(() => {
+    const newDim = Math.max(1, dimension - 1);
+    setDimension(newDim);
+    if (dimension === newDim) {
+      return;
+    }
+    setDimension(newDim);
+    setCoefficients((_) => createEmptyCoefficients(newDim));
+    setRhsValues((_) => createEmptyRhsValues(newDim));
+  }, [dimension, createEmptyCoefficients, createEmptyRhsValues]);
 
   const onCoefficientsChanged = useCallback((newCoefficients: Coefficients) => {
     setCoefficients((_) => newCoefficients);
