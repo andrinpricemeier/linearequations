@@ -92,7 +92,7 @@ export const MainApp = () => {
   }, [coefficients, rhsValues]);
 
   return (
-    <main className="m-6 flex flex-col gap-y-5">
+    <main className="my-6 mx-24 flex flex-col gap-y-5">
       <Title />
       <TopActionBar>
         <Button content="-" onClick={decreaseDimension} />
