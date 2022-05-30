@@ -2,16 +2,15 @@ import { useCallback, useState } from "react";
 import { BottomActionBar } from "./BottomActionBar";
 import { Button } from "./Button";
 import { CoefficientMatrix } from "./CoefficientMatrix";
-import { InProgressIcon } from "./InProgressIcon";
 import { SolutionVariable } from "./SolutionVariable";
 import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
 import { Title } from "./Title";
 import { TopActionBar } from "./TopActionBar";
-import LoadingOverlay from "react-loading-overlay-ts";
 
 export const MainApp = () => {
   const [isSolving, setIsSolving] = useState(true);
+  const [solvingSucceeded, setSolvingSucceeded] = useState(true);
   const [dimension, setDimension] = useState<number>(2);
 
   const increaseDimension = useCallback(() => {
@@ -29,18 +28,14 @@ export const MainApp = () => {
         <Button content="-" onClick={decreaseDimension} />
         <Button content="+" onClick={increaseDimension} />
       </TopActionBar>
-      <LoadingOverlay
-        active={isSolving}
-        spinner={<InProgressIcon />}
-        text="Solving equations..."
-      >
-        <CoefficientMatrix dimension={dimension} />
-      </LoadingOverlay>
+      <CoefficientMatrix dimension={dimension} />
       <BottomActionBar />
-      <SolutionVariableList
-        variables={[<SolutionVariable key="a" name={"a"} value={5.4} />]}
-      />
-      <SolvingFailedText />
+      {!isSolving && solvingSucceeded && (
+        <SolutionVariableList
+          variables={[<SolutionVariable key="a" name={"a"} value={5.4} />]}
+        />
+      )}
+      {!isSolving && !solvingSucceeded && <SolvingFailedText />}
     </main>
   );
 };

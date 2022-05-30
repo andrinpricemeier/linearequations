@@ -1,5 +1,4 @@
 import { CoefficientColumn } from "./CoefficientColumn";
-import { LeftRightSeparator } from "./LeftRightSeparator";
 import { RhsColumn } from "./RhsColumn";
 
 export interface ICoefficientMatrix {
@@ -8,7 +7,7 @@ export interface ICoefficientMatrix {
 
 export const CoefficientMatrix = (props: ICoefficientMatrix) => {
   return (
-    <div className="flex gap-4">
+    <div className="flex w-full gap-4">
       {[...Array(props.dimension).keys()].map((___, i) => {
         return (
           <CoefficientColumn

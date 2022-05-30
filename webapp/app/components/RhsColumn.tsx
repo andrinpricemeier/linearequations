@@ -6,7 +6,13 @@ export interface IRhsColumnProps {
 }
 export const RhsColumn = (props: IRhsColumnProps) => {
   return (
-    <div className="flex flex-col">
+    <div
+      className="flex grow 
+        flex-col
+        border-l-2
+        border-black
+        pl-5"
+    >
       {props.values.map((value, i) => {
         return <NumberInput key={props.key + i} value={value} />;
       })}

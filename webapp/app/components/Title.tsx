@@ -1,6 +1,6 @@
 export const Title = () => {
   return (
-    <div className="h-60 w-60">
+    <div className="w-60">
       <svg
         viewBox="0 0 1438 230"
         version="1.1"

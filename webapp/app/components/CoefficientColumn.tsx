@@ -6,7 +6,10 @@ export interface ICoefficientColumnProps {
 }
 export const CoefficientColumn = (props: ICoefficientColumnProps) => {
   return (
-    <div className="flex flex-col">
+    <div
+      className="flex grow 
+        flex-col"
+    >
       {props.values.map((value, i) => {
         return <NumberInput key={props.key + i} value={value} />;
       })}
