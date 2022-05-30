@@ -1,5 +1,7 @@
 import { MainScreen } from "./MainScreen";
 import { rest } from "msw";
+import { fireEvent, within, waitFor } from "@storybook/testing-library";
+
 export default {
   title: "Main Screen",
   component: MainScreen,
@@ -22,6 +24,12 @@ Default.parameters = {
       }),
     ],
   },
+};
+Default.play = async ({ canvasElement }: { canvasElement: any }) => {
+  const canvas = within(canvasElement);
+  await waitFor(async () => {
+    await fireEvent.click(canvas.getByText("Solve"));
+  });
 };
 
 export const Error = Template.bind({}) as any;
