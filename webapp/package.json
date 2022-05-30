@@ -12,7 +12,6 @@
     "format": "prettier --write .",
     "generate:css": "tailwindcss -i app/styles/input_tailwind.css -o app/styles/output_tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "setup": "prisma migrate dev && prisma db seed",
     "start": "remix-serve build",
     "start:mocks": "binode --require ./mocks -- @remix-run/serve:remix-serve build",
     "test": "vitest",
@@ -21,7 +20,7 @@
     "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"npx cypress run\"",
     "typecheck": "tsc -b && tsc -b cypress",
     "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run",
-    "storybook": "concurrently \"pnpm run dev:css\" \"start-storybook -p 6006\"",
+    "storybook": "concurrently \"pnpm run dev:css\" \"start-storybook -p 6006 -s public\"",
     "build-storybook": "build-storybook"
   },
   "prettier": {},
@@ -81,6 +80,7 @@
     "eslint-plugin-storybook": "^0.5.12",
     "happy-dom": "^3.2.2",
     "msw": "^0.40.2",
+    "msw-storybook-addon": "^1.6.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "prettier": "2.6.2",
@@ -96,5 +96,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

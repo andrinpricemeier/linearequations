@@ -1,4 +1,5 @@
 import { MainScreen } from "./MainScreen";
+import { rest } from "msw";
 export default {
   title: "Main Screen",
   component: MainScreen,
@@ -6,5 +7,18 @@ export default {
 
 const Template = (args: any) => <MainScreen {...args} />;
 
-export const Primary = Template.bind({}) as any;
-Primary.args = {};
+export const Default = Template.bind({}) as any;
+Default.args = {};
+Default.parameters = {
+  msw: {
+    handlers: [
+      rest.post("/linearequation/analysis", (req, res, ctx) => {
+        return res(
+          ctx.json({
+            solution: [4.2, 1.6, 3.3],
+          })
+        );
+      }),
+    ],
+  },
+};
