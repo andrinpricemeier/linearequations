@@ -3,19 +3,19 @@ import { CoefficientColumn } from "./CoefficientColumn";
 import { RhsColumn } from "./RhsColumn";
 
 export type Coefficients = CoefficientRow[];
-export type CoefficientRow = number[];
+export type CoefficientRow = string[];
 export interface ICoefficientMatrix {
   dimension: number;
   coefficients: Coefficients;
-  rhsValues: number[];
+  rhsValues: string[];
   onCoefficientsChanged: (newCoefficients: Coefficients) => void;
-  onRhsValuesChanged: (newRhsValues: number[]) => void;
+  onRhsValuesChanged: (newRhsValues: string[]) => void;
 }
 
 export const CoefficientMatrix = (props: ICoefficientMatrix) => {
   const coefficientsChangedCallback = props.onCoefficientsChanged;
   const onCoefficientChanged = useCallback(
-    (row: number, col: number, newValue: number) => {
+    (row: number, col: number, newValue: string) => {
       const newCoefficients = JSON.parse(JSON.stringify(props.coefficients));
       newCoefficients[row][col] = newValue;
       coefficientsChangedCallback(newCoefficients);
@@ -24,7 +24,7 @@ export const CoefficientMatrix = (props: ICoefficientMatrix) => {
   );
 
   const getValuesForColumn = useCallback(
-    (columnIndex: number): number[] => {
+    (columnIndex: number): string[] => {
       return props.coefficients.map((row: CoefficientRow) => row[columnIndex]);
     },
     [props.coefficients]
@@ -32,7 +32,7 @@ export const CoefficientMatrix = (props: ICoefficientMatrix) => {
 
   const rhsValuesChangedCallback = props.onRhsValuesChanged;
   const onRhsValueChanged = useCallback(
-    (row: number, newValue: number) => {
+    (row: number, newValue: string) => {
       const newRhsValues = [...props.rhsValues];
       newRhsValues[row] = newValue;
       rhsValuesChangedCallback(newRhsValues);

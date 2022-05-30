@@ -2,23 +2,24 @@ import { useCallback } from "react";
 
 export interface INumberInputProps {
   id: string;
-  value: number;
-  onValueChanged: (id: string, newValue: number) => void;
+  value: string;
+  onValueChanged: (id: string, newValue: string) => void;
 }
 export const NumberInput = (props: INumberInputProps) => {
   const handleFocus = useCallback((event: any) => event.target.select(), []);
   const valueChangedCallback = props.onValueChanged;
   const handleValueChanged = useCallback(
     (event: any) => {
-      const value = parseFloat(event.target.value);
-      valueChangedCallback(props.id, value);
+      valueChangedCallback(props.id, event.target.value);
     },
     [valueChangedCallback, props.id]
   );
   return (
     <div className="mb-3">
       <input
-        type="number"
+        type="text"
+        inputMode="numeric"
+        pattern="[-,.0-9]*"
         className="
         form-control
         w-full

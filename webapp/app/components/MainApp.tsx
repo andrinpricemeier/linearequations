@@ -14,10 +14,10 @@ export const MainApp = () => {
   const [solvingSucceeded, setSolvingSucceeded] = useState(true);
   const [dimension, setDimension] = useState<number>(2);
   const [coefficients, setCoefficients] = useState<Coefficients>([
-    [0, 0],
-    [0, 0],
+    ["0", "0"],
+    ["0", "0"],
   ]);
-  const [rhsValues, setRhsValues] = useState<number[]>([0, 0]);
+  const [rhsValues, setRhsValues] = useState<string[]>(["0", "0"]);
   const [solutions, setSolutions] = useState<number[]>([]);
 
   const createEmptyCoefficients = useCallback((dimension: number) => {
@@ -25,7 +25,7 @@ export const MainApp = () => {
     for (let i = 0; i < dimension; i++) {
       const columns = [];
       for (let j = 0; j < dimension; j++) {
-        columns.push(0);
+        columns.push("0");
       }
       rows.push(columns);
     }
@@ -35,7 +35,7 @@ export const MainApp = () => {
   const createEmptyRhsValues = useCallback((dimension: number) => {
     const rows = [];
     for (let i = 0; i < dimension; i++) {
-      rows.push(0);
+      rows.push("0");
     }
     return rows;
   }, []);
@@ -65,7 +65,7 @@ export const MainApp = () => {
     setCoefficients((_) => newCoefficients);
   }, []);
 
-  const onRhsValuesChanged = useCallback((newRhsValues: number[]) => {
+  const onRhsValuesChanged = useCallback((newRhsValues: string[]) => {
     setRhsValues((_) => newRhsValues);
   }, []);
 
