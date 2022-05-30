@@ -6,8 +6,9 @@ export default {
 
 const Template = (args: any) => <Button {...args} />;
 
-export const Primary = Template.bind({}) as any;
-Primary.args = {
+export const Default = Template.bind({}) as any;
+Default.args = {
   content: "Solve!",
+  isEnabled: true,
   argTypes: { onClick: { action: "clicked" } },
 };
