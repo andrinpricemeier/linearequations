@@ -12,7 +12,8 @@ Default.args = {};
 Default.parameters = {
   msw: {
     handlers: [
-      rest.post("/linearequation/analysis", (req, res, ctx) => {
+      rest.post("/linearequation/analysis", async (req, res, ctx) => {
+        await new Promise((r) => setTimeout(r, 2000));
         return res(
           ctx.json({
             solution: [4.2, 1.6, 3.3],
