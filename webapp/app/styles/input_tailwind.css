@@ -2,6 +2,7 @@
   font-family: 'xkcdScript';
   font-style: normal;
   src: url('/fonts/xkcd-script.woff2') format('woff2');
+  font-display: swap;
 }
 
 @tailwind base;
