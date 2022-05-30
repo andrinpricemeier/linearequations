@@ -9,7 +9,7 @@ import { SolvingFailedText } from "./SolvingFailedText";
 import { Title } from "./Title";
 import { TopActionBar } from "./TopActionBar";
 
-export const MainApp = () => {
+export const MainScreen = () => {
   const [isSolving, setIsSolving] = useState(true);
   const [solvingSucceeded, setSolvingSucceeded] = useState(true);
   const [dimension, setDimension] = useState<number>(2);

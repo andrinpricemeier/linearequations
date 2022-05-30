@@ -1,5 +1,5 @@
-import { MainApp } from "../components/MainApp";
+import { MainScreen } from "../components/MainApp";
 
 export default function Index() {
-  return <MainApp />;
+  return <MainScreen />;
 }
