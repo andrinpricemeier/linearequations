@@ -29,6 +29,9 @@ Default.play = async ({ canvasElement }: { canvasElement: any }) => {
   const canvas = within(canvasElement);
   await waitFor(async () => {
     await fireEvent.click(canvas.getByText("Solve"));
+    await fireEvent.click(canvas.getByText("-"));
+    await fireEvent.click(canvas.getByText("+"));
+    await fireEvent.click(canvas.getByText("+"));
   });
 };
 
