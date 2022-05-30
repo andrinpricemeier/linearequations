@@ -7,6 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/output_tailwind.css";
@@ -67,6 +68,7 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  const data = useLoaderData();
   return (
     <html lang="en" className="h-full">
       <head>
@@ -76,6 +78,11 @@ export default function App() {
       <body className="h-full">
         <Outlet />
         <ScrollRestoration />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+          }}
+        />
         <Scripts />
         <LiveReload />
       </body>
