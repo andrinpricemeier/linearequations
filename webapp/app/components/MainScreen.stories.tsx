@@ -23,3 +23,15 @@ Default.parameters = {
     ],
   },
 };
+
+export const Error = Template.bind({}) as any;
+Error.args = {};
+Error.parameters = {
+  msw: {
+    handlers: [
+      rest.post("/linearequation/analysis", async (req, res, ctx) => {
+        return res(ctx.status(500));
+      }),
+    ],
+  },
+};
