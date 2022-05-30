@@ -6,7 +6,7 @@ import { InProgressIcon } from "./InProgressIcon";
 import { SolutionVariable } from "./SolutionVariable";
 import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
-import { TitleImage } from "./TitleImage";
+import { Title } from "./Title";
 import { TopActionBar } from "./TopActionBar";
 
 export const MainApp = () => {
@@ -22,7 +22,7 @@ export const MainApp = () => {
 
   return (
     <main className="m-6 flex flex-col gap-y-5">
-      <TitleImage />
+      <Title />
       <TopActionBar>
         <Button content="-" onClick={decreaseDimension} />
         <Button content="+" onClick={increaseDimension} />
