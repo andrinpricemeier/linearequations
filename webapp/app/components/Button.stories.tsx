@@ -8,7 +8,6 @@ const Template = (args: any) => <Button {...args} />;
 
 export const Default = Template.bind({}) as any;
 Default.args = {
-  content: "Solve!",
-  isEnabled: true,
+  content: "Solve",
   argTypes: { onClick: { action: "clicked" } },
 };
