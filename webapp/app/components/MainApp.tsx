@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
+import { SudolverApi } from "../services/SolverApi";
 import { BottomActionBar } from "./BottomActionBar";
 import { Button } from "./Button";
+import type { Coefficients } from "./CoefficientMatrix";
 import { CoefficientMatrix } from "./CoefficientMatrix";
-import { SolutionVariable } from "./SolutionVariable";
 import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
 import { Title } from "./Title";
@@ -12,6 +13,12 @@ export const MainApp = () => {
   const [isSolving, setIsSolving] = useState(true);
   const [solvingSucceeded, setSolvingSucceeded] = useState(true);
   const [dimension, setDimension] = useState<number>(2);
+  const [coefficients, setCoefficients] = useState<Coefficients>([
+    [0, 0],
+    [0, 0],
+  ]);
+  const [rhsValues, setRhsValues] = useState<number[]>([0, 0]);
+  const [solutions, setSolutions] = useState<number[]>([]);
 
   const increaseDimension = useCallback(() => {
     setDimension((dim) => Math.min(10, dim + 1));
@@ -21,6 +28,34 @@ export const MainApp = () => {
     setDimension((dim) => Math.max(1, dim - 1));
   }, []);
 
+  const onCoefficientsChanged = useCallback((newCoefficients: Coefficients) => {
+    setCoefficients((_) => newCoefficients);
+  }, []);
+
+  const onRhsValuesChanged = useCallback((newRhsValues: number[]) => {
+    setRhsValues((_) => newRhsValues);
+  }, []);
+
+  const onSolve = useCallback(async () => {
+    console.log("Setting screenshot");
+    setIsSolving(true);
+    const api = new SudolverApi();
+    try {
+      const equationSolutions = await api.solve(coefficients, rhsValues);
+      console.log("Success.");
+      console.log(equationSolutions);
+      setIsSolving(true);
+      setSolvingSucceeded(true);
+      setSolutions(equationSolutions);
+    } catch (ex) {
+      console.log("Failed.");
+      console.error(ex);
+      setSolvingSucceeded(false);
+    } finally {
+      setIsSolving(false);
+    }
+  }, [coefficients, rhsValues]);
+
   return (
     <main className="m-6 flex flex-col gap-y-5">
       <Title />
@@ -28,12 +63,18 @@ export const MainApp = () => {
         <Button content="-" onClick={decreaseDimension} />
         <Button content="+" onClick={increaseDimension} />
       </TopActionBar>
-      <CoefficientMatrix dimension={dimension} />
-      <BottomActionBar />
+      <CoefficientMatrix
+        dimension={dimension}
+        coefficients={coefficients}
+        rhsValues={rhsValues}
+        onCoefficientsChanged={onCoefficientsChanged}
+        onRhsValuesChanged={onRhsValuesChanged}
+      />
+      <BottomActionBar>
+        <Button content="Solve" onClick={onSolve} />
+      </BottomActionBar>
       {!isSolving && solvingSucceeded && (
-        <SolutionVariableList
-          variables={[<SolutionVariable key="a" name={"a"} value={5.4} />]}
-        />
+        <SolutionVariableList solutions={solutions} />
       )}
       {!isSolving && !solvingSucceeded && <SolvingFailedText />}
     </main>

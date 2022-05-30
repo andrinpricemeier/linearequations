@@ -1,9 +1,7 @@
-import { Button } from "./Button";
+export interface IBottomActionBarProps {
+  children: React.ReactNode;
+}
 
-export const BottomActionBar = () => {
-  return (
-    <div className="flex">
-      <Button content="Solve" onClick={() => {}} />
-    </div>
-  );
+export const BottomActionBar = (props: IBottomActionBarProps) => {
+  return <div className="flex">{props.children}</div>;
 };

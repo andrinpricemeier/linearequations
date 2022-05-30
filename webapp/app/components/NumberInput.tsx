@@ -1,10 +1,20 @@
 import { useCallback } from "react";
 
 export interface INumberInputProps {
+  id: string;
   value: number;
+  onValueChanged: (id: string, newValue: number) => void;
 }
 export const NumberInput = (props: INumberInputProps) => {
   const handleFocus = useCallback((event: any) => event.target.select(), []);
+  const valueChangedCallback = props.onValueChanged;
+  const handleValueChanged = useCallback(
+    (event: any) => {
+      const value = parseFloat(event.target.value);
+      valueChangedCallback(props.id, value);
+    },
+    [valueChangedCallback, props.id]
+  );
   return (
     <div className="mb-3">
       <input
@@ -27,8 +37,10 @@ export const NumberInput = (props: INumberInputProps) => {
         ease-in-out
         focus:border-black focus:bg-white focus:text-black focus:outline-none
       "
+        step="0.01"
         value={props.value}
         onFocus={handleFocus}
+        onChange={handleValueChanged}
       />
     </div>
   );

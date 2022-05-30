@@ -1,5 +1,5 @@
 export interface ITopActionBarProps {
-  children: JSX.Element[];
+  children: React.ReactNode;
 }
 
 export const TopActionBar = (props: ITopActionBarProps) => {
