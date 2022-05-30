@@ -6,3 +6,4 @@ node_modules
 /cypress/videos
 /app/styles/output_tailwind.css
 .netlify
+storybook-static
