@@ -80,6 +80,11 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <script
+          defer
+          data-domain="linear-equations.com"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
