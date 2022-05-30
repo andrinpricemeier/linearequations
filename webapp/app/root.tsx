@@ -1,8 +1,4 @@
-import type {
-  LinksFunction,
-  LoaderFunction,
-  MetaFunction,
-} from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -56,6 +52,14 @@ export const links: LinksFunction = () => {
     },
   ];
 };
+
+export async function loader() {
+  return json({
+    ENV: {
+      API_KEY: process.env.API_KEY,
+    },
+  });
+}
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
