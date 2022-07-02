@@ -4,6 +4,7 @@ import { BottomActionBar } from "./BottomActionBar";
 import { Button } from "./Button";
 import type { Coefficients } from "./CoefficientMatrix";
 import { CoefficientMatrix } from "./CoefficientMatrix";
+import { Explanation } from "./Explanation";
 import { Footer } from "./Footer";
 import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
@@ -95,6 +96,7 @@ export const MainScreen = () => {
   return (
     <main className="my-6 mx-24 flex flex-col gap-y-5">
       <Title />
+      <Explanation />
       <TopActionBar>
         <Button content="-" onClick={decreaseDimension} />
         <Button content="+" onClick={increaseDimension} />
