@@ -4,6 +4,7 @@ import { BottomActionBar } from "./BottomActionBar";
 import { Button } from "./Button";
 import type { Coefficients } from "./CoefficientMatrix";
 import { CoefficientMatrix } from "./CoefficientMatrix";
+import { Footer } from "./Footer";
 import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
 import { Title } from "./Title";
@@ -112,6 +113,7 @@ export const MainScreen = () => {
         <SolutionVariableList solutions={solutions} />
       )}
       {!isSolving && !solvingSucceeded && <SolvingFailedText />}
+      <Footer />
     </main>
   );
 };
