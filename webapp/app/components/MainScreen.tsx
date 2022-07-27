@@ -10,6 +10,9 @@ import { SolutionVariableList } from "./SolutionVariableList";
 import { SolvingFailedText } from "./SolvingFailedText";
 import { Title } from "./Title";
 import { TopActionBar } from "./TopActionBar";
+import Plausible from "plausible-tracker";
+
+const { trackEvent } = Plausible();
 
 export const MainScreen = () => {
   const [isSolving, setIsSolving] = useState(true);
@@ -73,6 +76,7 @@ export const MainScreen = () => {
 
   const onSolve = useCallback(async () => {
     console.log("Setting screenshot");
+    trackEvent("solve");
     setSolutions([]);
     setIsSolving(true);
     setSolvingSucceeded(false);
