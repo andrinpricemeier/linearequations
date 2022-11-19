@@ -19,10 +19,10 @@ export const MainScreen = () => {
   const [solvingSucceeded, setSolvingSucceeded] = useState(true);
   const [dimension, setDimension] = useState<number>(2);
   const [coefficients, setCoefficients] = useState<Coefficients>([
-    ["0", "0"],
-    ["0", "0"],
+    ["1", "2"],
+    ["2", "-2"],
   ]);
-  const [rhsValues, setRhsValues] = useState<string[]>(["0", "0"]);
+  const [rhsValues, setRhsValues] = useState<string[]>(["4", "2"]);
   const [solutions, setSolutions] = useState<number[]>([]);
 
   const createEmptyCoefficients = useCallback((dimension: number) => {
